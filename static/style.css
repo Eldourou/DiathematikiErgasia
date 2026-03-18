@@ -1,0 +1,188 @@
+/* --- 1. Γενικές Ρυθμίσεις Σώματος --- */
+body {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: x-large;
+  color: #1d1add;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6; /* Καλύτερη απόσταση μεταξύ των γραμμών */
+}
+
+/* Διασφάλιση ότι οι εικόνες δεν "ξεχειλίζουν" ποτέ από την οθόνη */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- 2. Μενού Πλοήγησης (Tabs) --- */
+.tab-menu {
+  display: flex;
+  flex-wrap: wrap; /* Για να μην στριμώχνονται οι καρτέλες */
+  justify-content: flex-start;
+  background-color: #4b75e0;
+}
+
+.tab-menu a {
+  padding: 14px 20px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  flex-grow: 1; /* Οι καρτέλες μοιράζονται τον χώρο δίκαια */
+  transition: background-color 0.3s;
+}
+
+.tab-menu a:hover {
+  background-color: #7aadba;
+}
+
+.tab-menu a.active {
+  background-color: #e38d1c;
+  font-weight: bold;
+}
+
+/* --- 3. Αρχική Σελίδα --- */
+figure#fig1 {
+  float: left;
+  margin: 1.2em;
+}
+
+figcaption {
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.class1 {
+  font-family: "Comic Sans MS", cursive;
+  font-size: 2rem;
+  font-style: oblique;
+  font-weight: bold;
+  color: #1d1add;
+  clear: both;
+  padding: 20px;
+}
+
+/* --- 4. Ενότητες Περιεχομένου --- */
+.WordSection1 {
+  padding: 20px;
+}
+
+.content {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid rgb(181, 19, 19);
+  border-radius: 8px;
+}
+
+.content img {
+  display: inline-block;
+  margin: 10px;
+  max-width: 250px;
+  border-radius: 5px;
+}
+
+/* --- 5. Σύστημα Στηλών (Layout Επικοινωνίας) --- */
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Επιτρέπει στις στήλες να αλλάζουν σειρά σε μικρές οθόνες */
+  justify-content: space-between;
+  gap: 20px;
+  margin: 20px;
+}
+
+.column {
+  flex: 1;
+  min-width: 300px; /* Ελάχιστο πλάτος πριν "σπάσει" η στήλη */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.column h1 {
+  font-size: x-large;
+  margin-bottom: 15px;
+  color: #4b75e0;
+}
+
+/* --- 6. Φόρμα Επικοινωνίας --- */
+form {
+  width: 100%;
+}
+
+form label {
+  display: block;
+  margin: 12px 0 4px;
+  font-weight: bold;
+  font-size: large;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Πολύ σημαντικό για το responsive */
+  font-size: medium;
+}
+
+form input[type="submit"] {
+  background-color: #4b75e0;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+form input[type="submit"]:hover {
+  background-color: #1d1add;
+}
+
+form input[type="reset"] {
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  padding: 12px 25px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* --- 7. RESPONSIVE ΡΥΘΜΙΣΕΙΣ (Media Queries) --- */
+@media (max-width: 768px) {
+  /* Το μενού γίνεται κάθετο */
+  .tab-menu {
+    flex-direction: column;
+  }
+
+  .tab-menu a {
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* Οι στήλες της επικοινωνίας πιάνουν όλο το πλάτος */
+  .container {
+    flex-direction: column;
+  }
+
+  .column {
+    min-width: 100%;
+  }
+
+  /* Η εικόνα στην αρχική κεντράρεται */
+  figure#fig1 {
+    float: none;
+    margin: 20px auto;
+    display: block;
+    width: fit-content;
+  }
+
+  .class1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Αρχική Σελίδα{% endblock %}
+{% block description %}Υδραυλικές εργασίες και εγκαταστάσεις στην Κηφισιά. Άμεσα κοντά σας με ένα τηλεφώνημα για ύδρευση, θέρμανση και φυσικό αέριο.{% endblock %}
+
+{% block content %}
+<h1>Άμεσα κοντά σας με ένα τηλεφώνημα</h1>
+
+<figure id="fig1">
+  <img src="{{ url_for('static', filename='images/υδραυλικος.jpg') }}" alt="Υδραυλικές εργασίες Γεντίκης - Άμεση εξυπηρέτηση">
+  <figcaption>Ο υδραυλικός σας</figcaption>
+</figure>
+
+<p class="class1">
+  Ολοκληρωμένες υπηρεσίες<br>
+  Με σεβασμό στο χώρο σας<br>
+  Υπεύθυνα & Αξιόπιστα
+</p>
+{% endblock %}

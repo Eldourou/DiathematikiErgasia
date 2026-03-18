@@ -1,0 +1,179 @@
+/* --- 1. Γενικές Ρυθμίσεις & Μεταβλητές --- */
+:root {
+  --primary-color: #4b75e0;
+  --secondary-color: #e38d1c;
+  --text-dark: #1d1add;
+  --bg-light: #f4f4f4;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+//* --- 2. Σταθερό Header (Λογότυπο + Μενού) --- */
+/* Σταθερό Header */
+/* --- Οριστική Λύση για Sticky Header & Logo --- */
+header.main-header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  width: 100%;
+  display: block; /* Αλλάζουμε το flex σε block για μέγιστη συμβατότητα */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.image-wrapper {
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  overflow: hidden; /* Εμποδίζει την εικόνα να "ξεχειλώσει" */
+}
+
+.main-logo {
+  /* Η "μαγική" ρύθμιση για Edge & Chrome */
+  display: inline-block;
+  max-width: 600px; /* Το μέγιστο που θέλουμε σε μεγάλη οθόνη */
+  width: 90%;      /* Θα πιάνει το 90% της οθόνης μέχρι να φτάσει τα 600px */
+  height: auto !important;
+  /* Βάζουμε ένα "κόφτη" ύψους για να μην κρύβει όλη την οθόνη στον Edge */
+  max-height: 250px;
+  object-fit: contain; /* Διασφαλίζει ότι δεν θα παραμορφωθεί η εικόνα */
+}
+
+.tab-menu {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: var(--primary-color);
+  margin: 0;
+}
+
+.tab-menu a {
+  padding: 15px 25px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  flex-grow: 1;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.tab-menu a:hover {
+  background-color: #3656a3;
+}
+
+.tab-menu a.active {
+  background-color: var(--secondary-color);
+  font-weight: bold;
+}
+
+/* --- 3. Κεντρικό Περιεχόμενο --- */
+main, .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 { font-size: 2.2rem; color: var(--primary-color); text-align: center; margin-top: 30px; }
+h2 { font-size: 1.8rem; color: var(--primary-color); border-bottom: 2px solid var(--bg-light); padding-bottom: 10px; }
+
+/* --- 4. Φόρμες (Επαναφορά στην τάξη) --- */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+form label {
+  display: block;
+  margin: 15px 0 5px 0;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Κρατάει τα πεδία μέσα στα όρια */
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+form input[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+  flex: 2;
+  cursor: pointer;
+  border: none;
+  padding: 12px;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+form input[type="reset"] {
+  background-color: #eee;
+  flex: 1;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+}
+
+/* --- 5. Λοιπά Στοιχεία --- */
+figure#fig1 { display: block; margin: 20px auto; max-width: 600px; }
+
+.class1 {
+  background-color: var(--bg-light);
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+footer {
+  background: #222;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* --- 6. Responsive για Κινητά --- */
+@media (max-width: 768px) {
+  .main-logo {
+    width: 95% !important;
+    max-width: 450px; /* Λίγο πιο συμμαζεμένο αλλά ευδιάκριτο */
+    max-height: 150px; /* Πιο μαζεμένο στα κινητά */
+  }
+
+  .tab-menu a {
+    flex: 1 1 45%;
+    padding: 10px 5px;
+    font-size: 0.85rem;
+  }
+
+  h1 { font-size: 1.6rem; }
+}
